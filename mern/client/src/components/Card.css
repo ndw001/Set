@@ -4,3 +4,10 @@
   width: 300px;
   border-radius: 20px;
 }
+
+.CardSymbol {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
