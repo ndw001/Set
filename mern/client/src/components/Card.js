@@ -1,9 +1,12 @@
 import "./Card.css";
+import Oval from "./Symbols/Oval";
 
 function Card() {
   return (
     <div className="Card">
-      <div className="CardSymbol">HELLO</div>
+      <div className="CardSymbol">
+        <Oval />
+      </div>
     </div>
   );
 }
