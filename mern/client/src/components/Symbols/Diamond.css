@@ -1,0 +1,6 @@
+.Diamond {
+  width: 100px;
+  height: 100px;
+  background: #a84909;
+  transform: rotateY(45deg) rotateZ(45deg);
+}

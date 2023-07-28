@@ -6,7 +6,9 @@ function GameBoard() {
   const currentCards = {};
   return (
     <div className="GameBoard">
-      <Card />
+      <Card shape={"Oval"} />
+      <Card shape={"Diamond"} />
+      <Card shape={"Squiggle"} />
     </div>
   );
 }
