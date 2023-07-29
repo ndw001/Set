@@ -3,4 +3,5 @@
   height: 120px;
   background: #a84909;
   border-radius: 50%;
+  transform: rotateY(20deg);
 }
