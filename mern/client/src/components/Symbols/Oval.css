@@ -1,19 +1,42 @@
 .Oval {
   width: 80px;
   height: 120px;
-  background: #a84909;
   border-radius: 50%;
   transform: rotateY(20deg);
 }
 
-#Red {
-  background: red;
+#Red-Empty {
+  border: 4px solid red;
+}
+/* need to work on this */
+#Red-Lines {
+  border: 4px solid red;
 }
 
-#Green {
+#Red-Solid {
+  background-color: red;
+}
+
+#Green-Empty {
+  border: 4px solid green;
+}
+/* need to work on this */
+#Green-Lines {
+  border: 4px solid green;
+}
+
+#Green-Solid {
   background: green;
 }
 
-#Purple {
+#Purple-Empty {
+  border: 4px solid purple;
+}
+/* need to work on this */
+#Purple-Lines {
+  border: 4px solid purple;
+}
+
+#Purple-Solid {
   background: purple;
 }

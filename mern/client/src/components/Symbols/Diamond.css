@@ -4,14 +4,38 @@
   transform: rotateY(55deg) rotateZ(45deg);
 }
 
-#Red {
-  background: red;
+#Red-Blank {
+  border: 5px solid red;
+}
+/* need to work on this */
+#Red-Lines {
+  border: 5px solid red;
 }
 
-#Green {
+#Red-Filled {
+  background-color: red;
+}
+
+#Green-Blank {
+  border: 5px solid green;
+}
+/* need to work on this */
+#Green-Lines {
+  border: 5px solid green;
+}
+
+#Green-Filled {
   background: green;
 }
 
-#Purple {
+#Purple-Blank {
+  border: 5px solid purple;
+}
+/* need to work on this */
+#Purple-Lines {
+  border: 5px solid purple;
+}
+
+#Purple-Filled {
   background: purple;
 }

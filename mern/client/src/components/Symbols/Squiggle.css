@@ -18,39 +18,59 @@
 .Squiggle1 {
   width: 50px;
   height: 50px;
-  background: #a84909;
   border-radius: 100% 0% 0% 100%;
 }
 
 .Squiggle2 {
   width: 50px;
   height: 50px;
-  background: #a84909;
   border-radius: 0% 100% 0% 0%;
 }
 
 .Squiggle3 {
   width: 50px;
   height: 50px;
-  background: #a84909;
   border-radius: 0% 0% 0% 100%;
 }
 
 .Squiggle4 {
   width: 50px;
   height: 50px;
-  background: #a84909;
   border-radius: 0% 100% 100% 0%;
 }
 
-#Red {
-  background: red;
+#Red-Blank {
+  border: 5px solid red;
+}
+/* need to work on this */
+#Red-Lines {
+  border: 5px solid red;
 }
 
-#Green {
+#Red-Filled {
+  background-color: red;
+}
+
+#Green-Blank {
+  border: 5px solid green;
+}
+/* need to work on this */
+#Green-Lines {
+  border: 5px solid green;
+}
+
+#Green-Filled {
   background: green;
 }
 
-#Purple {
+#Purple-Blank {
+  border: 5px solid purple;
+}
+/* need to work on this */
+#Purple-Lines {
+  border: 5px solid purple;
+}
+
+#Purple-Filled {
   background: purple;
 }
