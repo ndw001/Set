@@ -11,7 +11,10 @@ function GameBoard() {
   // One, Two, Three
   return (
     <div className="GameBoard">
-      <Card shape={"Oval"} color={"Red"} fill={"Empty"} />
+      <Card shape={"Oval"} color={"Red"} fill={"Lines"} />
+      <Card shape={"Oval"} color={"Green"} fill={"Solid"} />
+      <Card shape={"Oval"} color={"Purple"} fill={"Lines"} />
+
       <Card shape={"Diamond"} color={"Green"} fill={"Empty"} />
       <Card shape={"Squiggle"} color={"Purple"} fill={"Empty"} />
     </div>
