@@ -42,3 +42,15 @@
   background: #a84909;
   border-radius: 0% 100% 100% 0%;
 }
+
+#Red {
+  background: red;
+}
+
+#Green {
+  background: green;
+}
+
+#Purple {
+  background: purple;
+}

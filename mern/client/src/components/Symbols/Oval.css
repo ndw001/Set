@@ -5,3 +5,15 @@
   border-radius: 50%;
   transform: rotateY(20deg);
 }
+
+#Red {
+  background: red;
+}
+
+#Green {
+  background: green;
+}
+
+#Purple {
+  background: purple;
+}

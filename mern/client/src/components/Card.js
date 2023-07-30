@@ -8,7 +8,7 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Oval />
+          <Oval color={props.color} count={props.count} shade={props.shade} />
         </div>
       </div>
     );
@@ -16,7 +16,11 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Diamond />
+          <Diamond
+            color={props.color}
+            count={props.count}
+            shade={props.shade}
+          />
         </div>
       </div>
     );
@@ -24,7 +28,11 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Squiggle />
+          <Squiggle
+            color={props.color}
+            count={props.count}
+            shade={props.shade}
+          />
         </div>
       </div>
     );

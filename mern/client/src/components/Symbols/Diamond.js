@@ -1,7 +1,7 @@
 import "./Diamond.css";
 
-function Diamond() {
-  return <div className="Diamond"></div>;
+function Diamond(props) {
+  return <div className="Diamond" id={props.color}></div>;
 }
 
 export default Diamond;

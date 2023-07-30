@@ -1,6 +1,17 @@
 .Diamond {
   width: 95px;
   height: 95px;
-  background: #a84909;
   transform: rotateY(55deg) rotateZ(45deg);
+}
+
+#Red {
+  background: red;
+}
+
+#Green {
+  background: green;
+}
+
+#Purple {
+  background: purple;
 }

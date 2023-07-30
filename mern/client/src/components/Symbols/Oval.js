@@ -1,7 +1,7 @@
 import "./Oval.css";
 
-function Oval() {
-  return <div className="Oval"></div>;
+function Oval(props) {
+  return <div className="Oval" id={props.color}></div>;
 }
 
 export default Oval;
