@@ -39,38 +39,38 @@
   border-radius: 0% 100% 100% 0%;
 }
 
-#Red-Blank {
+#Squiggle-Red-Empty {
   border: 5px solid red;
 }
 /* need to work on this */
-#Red-Lines {
+#Squiggle-Red-Lines {
   border: 5px solid red;
 }
 
-#Red-Filled {
+#Squiggle-Red-Solid {
   background-color: red;
 }
 
-#Green-Blank {
+#Squiggle-Green-Empty {
   border: 5px solid green;
 }
 /* need to work on this */
-#Green-Lines {
+#Squiggle-Green-Lines {
   border: 5px solid green;
 }
 
-#Green-Filled {
+#Squiggle-Green-Solid {
   background: green;
 }
 
-#Purple-Blank {
+#Squiggle-Purple-Empty {
   border: 5px solid purple;
 }
 /* need to work on this */
-#Purple-Lines {
+#Squiggle-Purple-Lines {
   border: 5px solid purple;
 }
 
-#Purple-Filled {
+#Squiggle-Purple-Solid {
   background: purple;
 }

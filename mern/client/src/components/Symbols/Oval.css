@@ -6,15 +6,15 @@
   z-index: 5;
 }
 
-#Red-Empty {
+#Oval-Red-Empty {
   border: 4px solid red;
 }
 
-#Red-Lines {
+#Oval-Red-Lines {
   border: 4px solid red;
 }
 
-#Red-Lines::before {
+#Oval-Red-Lines::before {
   content: "____ _____ _____ _____ _____ ___"; /* your dots */
   top: 0;
   right: 0;
@@ -27,19 +27,19 @@
   line-height: 0px;
 }
 
-#Red-Solid {
+#Oval-Red-Solid {
   background-color: red;
 }
 
-#Green-Empty {
+#Oval-Green-Empty {
   border: 4px solid green;
 }
 
-#Green-Lines {
+#Oval-Green-Lines {
   border: 4px solid green;
 }
 
-#Green-Lines::before {
+#Oval-Green-Lines::before {
   content: "____ _____ _____ _____ _____ ___"; /* your dots */
   top: 0;
   right: 0;
@@ -52,19 +52,19 @@
   line-height: 0px;
 }
 
-#Green-Solid {
+#Oval-Green-Solid {
   background: green;
 }
 
-#Purple-Empty {
+#Oval-Purple-Empty {
   border: 4px solid purple;
 }
 
-#Purple-Lines {
+#Oval-Purple-Lines {
   border: 4px solid purple;
 }
 
-#Purple-Lines::before {
+#Oval-Purple-Lines::before {
   content: "____ _____ _____ _____ _____ ___"; /* your dots */
   top: 0;
   right: 0;
@@ -77,6 +77,6 @@
   line-height: 0px;
 }
 
-#Purple-Solid {
+#Oval-Purple-Solid {
   background: purple;
 }

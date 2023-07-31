@@ -4,38 +4,55 @@
   transform: rotateY(55deg) rotateZ(45deg);
 }
 
-#Red-Blank {
-  border: 5px solid red;
-}
-/* need to work on this */
-#Red-Lines {
+#Diamond-Red-Blank {
   border: 5px solid red;
 }
 
-#Red-Filled {
+#Diamond-Red-Lines {
+  border: 5px solid red;
+}
+
+#Diamond-Red-Lines::before {
+  content: "____ ______  _____ ___"; /* your dots */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* stretches the before element over the entire surface of the main element */
+  z-index: -1; /* places the ::before element underneath the main div content, as a background */
+  padding-left: 6px; /* letter-spacing adds px after letter, use padding at the beginning to off set it to remain centered. */
+  font-size: 30px;
+  color: red;
+  line-height: 0px;
+}
+
+#Oval-Purple-Solid {
+  background: purple;
+}
+
+#Diamond-Red-Filled {
   background-color: red;
 }
 
-#Green-Blank {
+#Diamond-Green-Blank {
   border: 5px solid green;
 }
 /* need to work on this */
-#Green-Lines {
+#Diamond-Green-Lines {
   border: 5px solid green;
 }
 
-#Green-Filled {
+#Diamond-Green-Filled {
   background: green;
 }
 
-#Purple-Blank {
+#Diamond-Purple-Blank {
   border: 5px solid purple;
 }
 /* need to work on this */
-#Purple-Lines {
+#Diamond-Purple-Lines {
   border: 5px solid purple;
 }
 
-#Purple-Filled {
+#Diamond-Purple-Filled {
   background: purple;
 }
