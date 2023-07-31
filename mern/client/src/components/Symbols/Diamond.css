@@ -13,7 +13,7 @@
 }
 
 #Diamond-Red-Lines::before {
-  content: "____ ______  _____ ___"; /* your dots */
+  content: "____ ______  _____ ___";
   top: 0;
   right: 0;
   bottom: 0;
@@ -23,6 +23,7 @@
   font-size: 30px;
   color: red;
   line-height: 0px;
+  /* transform: rotateY(60deg); */
 }
 
 #Oval-Purple-Solid {

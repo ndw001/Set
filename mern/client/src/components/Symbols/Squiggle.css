@@ -39,38 +39,192 @@
   border-radius: 0% 100% 100% 0%;
 }
 
-#Squiggle-Red-Empty {
-  border: 5px solid red;
+/* SQUIGGLE ONE RED */
+#Squiggle1-Red-Empty {
+  border-top: 5px solid red;
+  border-left: 5px solid red;
+  border-bottom: 5px solid red;
 }
-/* need to work on this */
-#Squiggle-Red-Lines {
-  border: 5px solid red;
+#Squiggle1-Red-Lines {
+  border-top: 5px solid red;
+  border-left: 5px solid red;
+  border-bottom: 5px solid red;
 }
 
-#Squiggle-Red-Solid {
+#Squiggle1-Red-Solid {
   background-color: red;
 }
 
-#Squiggle-Green-Empty {
-  border: 5px solid green;
+/* SQUIGGLE TWO RED */
+#Squiggle2-Red-Empty {
+  border-top: 5px solid red;
+  border-right: 5px solid red;
 }
-/* need to work on this */
-#Squiggle-Green-Lines {
-  border: 5px solid green;
+#Squiggle2-Red-Lines {
+  border-top: 5px solid red;
+  border-right: 5px solid red;
 }
 
-#Squiggle-Green-Solid {
+#Squiggle2-Red-Solid {
+  background-color: red;
+}
+
+/* SQUIGGLE THREE RED*/
+
+#Squiggle3-Red-Empty {
+  border-left: 5px solid red;
+  border-bottom: 5px solid red;
+}
+#Squiggle3-Red-Lines {
+  border-left: 5px solid red;
+  border-bottom: 5px solid red;
+}
+
+#Squiggle3-Red-Solid {
+  background-color: red;
+}
+
+/* SQUIGGLE FOUR RED*/
+#Squiggle4-Red-Empty {
+  border-right: 5px solid red;
+  border-top: 5px solid red;
+  border-bottom: 5px solid red;
+}
+#Squiggle4-Red-Lines {
+  border-right: 5px solid red;
+  border-top: 5px solid red;
+  border-bottom: 5px solid red;
+}
+
+#Squiggle4-Red-Solid {
+  background-color: red;
+}
+
+/* SQUIGGLE ONE GREEN */
+
+#Squiggle1-Green-Empty {
+  border-top: 5px solid green;
+  border-left: 5px solid green;
+  border-bottom: 5px solid green;
+}
+#Squiggle1-Green-Lines {
+  border-top: 5px solid green;
+  border-left: 5px solid green;
+  border-bottom: 5px solid green;
+}
+
+#Squiggle1-Green-Solid {
   background: green;
 }
 
-#Squiggle-Purple-Empty {
-  border: 5px solid purple;
+/* SQUIGGLE TWO GREEN */
+
+#Squiggle2-Green-Empty {
+  border-top: 5px solid green;
+  border-right: 5px solid green;
 }
-/* need to work on this */
-#Squiggle-Purple-Lines {
-  border: 5px solid purple;
+#Squiggle2-Green-Lines {
+  border-top: 5px solid green;
+  border-right: 5px solid green;
 }
 
-#Squiggle-Purple-Solid {
-  background: purple;
+#Squiggle2-Green-Solid {
+  background: green;
+}
+
+/* SQUIGGLE THREE GREEN */
+
+#Squiggle3-Green-Empty {
+  border-left: 5px solid green;
+  border-bottom: 5px solid green;
+}
+#Squiggle3-Green-Lines {
+  border-left: 5px solid green;
+  border-bottom: 5px solid green;
+}
+
+#Squiggle3-Green-Solid {
+  background: green;
+}
+
+/* SQUIGGLE FOUR GREEN */
+
+#Squiggle4-Green-Empty {
+  border-right: 5px solid green;
+  border-top: 5px solid green;
+  border-bottom: 5px solid green;
+}
+#Squiggle4-Green-Lines {
+  border-right: 5px solid green;
+  border-top: 5px solid green;
+  border-bottom: 5px solid green;
+}
+
+#Squiggle4-Green-Solid {
+  background: green;
+}
+
+/* SQUIGGLE ONE PURPLE */
+#Squiggle1-Purple-Empty {
+  border-top: 5px solid Purple;
+  border-left: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle1-Purple-Lines {
+  border-top: 5px solid Purple;
+  border-left: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle1-Purple-Solid {
+  background-color: Purple;
+}
+
+/* SQUIGGLE TWO Purple */
+#Squiggle2-Purple-Empty {
+  border-top: 5px solid Purple;
+  border-right: 5px solid Purple;
+}
+
+#Squiggle2-Purple-Lines {
+  border-top: 5px solid Purple;
+  border-right: 5px solid Purple;
+}
+
+#Squiggle2-Purple-Solid {
+  background-color: Purple;
+}
+
+/* SQUIGGLE THREE Purple*/
+
+#Squiggle3-Purple-Empty {
+  border-left: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle3-Purple-Lines {
+  border-left: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle3-Purple-Solid {
+  background-color: Purple;
+}
+
+/* SQUIGGLE FOUR Purple*/
+#Squiggle4-Purple-Empty {
+  border-right: 5px solid Purple;
+  border-top: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle4-Purple-Lines {
+  border-right: 5px solid Purple;
+  border-top: 5px solid Purple;
+  border-bottom: 5px solid Purple;
+}
+
+#Squiggle4-Purple-Solid {
+  background-color: Purple;
 }

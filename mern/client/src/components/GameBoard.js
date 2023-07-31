@@ -19,9 +19,13 @@ function GameBoard() {
       <Card shape={"Diamond"} color={"Green"} fill={"Lines"} />
       <Card shape={"Diamond"} color={"Purple"} fill={"Lines"} />
 
+      <Card shape={"Squiggle"} color={"Red"} fill={"Empty"} />
+      <Card shape={"Squiggle"} color={"Green"} fill={"Lines"} />
+      <Card shape={"Squiggle"} color={"Purple"} fill={"Solid"} />
+
       <Card shape={"Squiggle"} color={"Red"} fill={"Solid"} />
       <Card shape={"Squiggle"} color={"Green"} fill={"Empty"} />
-      <Card shape={"Squiggle"} color={"Purple"} fill={"Solid"} />
+      <Card shape={"Squiggle"} color={"Purple"} fill={"Lines"} />
     </div>
   );
 }

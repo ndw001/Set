@@ -6,21 +6,21 @@ function Squiggle(props) {
       <div className="Row" id="RowTop">
         <div
           className="Squiggle1"
-          id={`Squiggle-${props.color}-${props.fill}`}
+          id={`Squiggle1-${props.color}-${props.fill}`}
         />
         <div
           className="Squiggle2"
-          id={`Squiggle-${props.color}-${props.fill}`}
+          id={`Squiggle2-${props.color}-${props.fill}`}
         />
       </div>
       <div className="Row" id="RowBot">
         <div
           className="Squiggle3"
-          id={`Squiggle-${props.color}-${props.fill}`}
+          id={`Squiggle3-${props.color}-${props.fill}`}
         />
         <div
           className="Squiggle4"
-          id={`Squiggle-${props.color}-${props.fill}`}
+          id={`Squiggle4-${props.color}-${props.fill}`}
         />
       </div>
     </div>
