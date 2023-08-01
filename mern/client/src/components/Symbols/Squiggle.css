@@ -16,26 +16,26 @@
 }
 
 .Squiggle1 {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 100% 0% 0% 100%;
 }
 
 .Squiggle2 {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 0% 100% 0% 0%;
 }
 
 .Squiggle3 {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 0% 0% 0% 100%;
 }
 
 .Squiggle4 {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 0% 100% 100% 0%;
 }
 
@@ -53,6 +53,7 @@
 
 #Squiggle1-Red-Solid {
   background-color: red;
+  border: 3px solid red;
 }
 
 /* SQUIGGLE TWO RED */
@@ -67,6 +68,7 @@
 
 #Squiggle2-Red-Solid {
   background-color: red;
+  border: 3px solid red;
 }
 
 /* SQUIGGLE THREE RED*/
@@ -82,6 +84,7 @@
 
 #Squiggle3-Red-Solid {
   background-color: red;
+  border: 3px solid red;
 }
 
 /* SQUIGGLE FOUR RED*/
@@ -90,14 +93,30 @@
   border-top: 5px solid red;
   border-bottom: 5px solid red;
 }
+
 #Squiggle4-Red-Lines {
   border-right: 5px solid red;
   border-top: 5px solid red;
   border-bottom: 5px solid red;
 }
 
+#Squiggle4-Red-Lines::before {
+  content: "____ ______  _____ ___";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* stretches the before element over the entire surface of the main element */
+  z-index: -1; /* places the ::before element underneath the main div content, as a background */
+  padding-left: 6px; /* letter-spacing adds px after letter, use padding at the beginning to off set it to remain centered. */
+  font-size: 30px;
+  color: red;
+  line-height: 0px;
+  /* transform: rotateY(60deg); */
+}
+
 #Squiggle4-Red-Solid {
   background-color: red;
+  border: 3px solid red;
 }
 
 /* SQUIGGLE ONE GREEN */
@@ -115,6 +134,7 @@
 
 #Squiggle1-Green-Solid {
   background: green;
+  border: 3px solid green;
 }
 
 /* SQUIGGLE TWO GREEN */
@@ -130,6 +150,7 @@
 
 #Squiggle2-Green-Solid {
   background: green;
+  border: 3px solid green;
 }
 
 /* SQUIGGLE THREE GREEN */
@@ -145,6 +166,7 @@
 
 #Squiggle3-Green-Solid {
   background: green;
+  border: 3px solid green;
 }
 
 /* SQUIGGLE FOUR GREEN */
@@ -162,6 +184,7 @@
 
 #Squiggle4-Green-Solid {
   background: green;
+  border: 3px solid green;
 }
 
 /* SQUIGGLE ONE PURPLE */
@@ -179,6 +202,7 @@
 
 #Squiggle1-Purple-Solid {
   background-color: Purple;
+  border: 3px solid purple;
 }
 
 /* SQUIGGLE TWO Purple */
@@ -194,6 +218,7 @@
 
 #Squiggle2-Purple-Solid {
   background-color: Purple;
+  border: 3px solid purple;
 }
 
 /* SQUIGGLE THREE Purple*/
@@ -210,6 +235,7 @@
 
 #Squiggle3-Purple-Solid {
   background-color: Purple;
+  border: 3px solid purple;
 }
 
 /* SQUIGGLE FOUR Purple*/
@@ -227,4 +253,5 @@
 
 #Squiggle4-Purple-Solid {
   background-color: Purple;
+  border: 3px solid purple;
 }
