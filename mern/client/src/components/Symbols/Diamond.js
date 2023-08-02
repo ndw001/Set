@@ -1,7 +1,7 @@
 import "./Diamond.css";
-import DiamondRedLines from "./Diamond-Red-Lines.svg";
-import DiamondGreenLines from "./Diamond-Green-Lines.svg";
-import DiamondPurpleLines from "./Diamond-Purple-Lines.svg";
+import DiamondRedLines from "./SVGs/Diamond-Red-Lines.svg";
+import DiamondGreenLines from "./SVGs/Diamond-Green-Lines.svg";
+import DiamondPurpleLines from "./SVGs/Diamond-Purple-Lines.svg";
 
 function Diamond(props) {
   if (props.fill === "Lines") {

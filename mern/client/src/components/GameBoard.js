@@ -15,7 +15,7 @@ function GameBoard() {
       <Card shape={"Oval"} color={"Green"} fill={"Solid"} />
       <Card shape={"Oval"} color={"Purple"} fill={"Lines"} />
 
-      <Card shape={"Diamond"} color={"Red"} fill={"Lines"} />
+      <Card shape={"Diamond"} color={"Red"} fill={"Empty"} />
       <Card shape={"Diamond"} color={"Green"} fill={"Lines"} />
       <Card shape={"Diamond"} color={"Purple"} fill={"Solid"} />
 
