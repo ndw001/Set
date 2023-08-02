@@ -16,28 +16,30 @@
 }
 
 .Squiggle1 {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 100% 0% 0% 100%;
 }
 
 .Squiggle2 {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 0% 100% 0% 0%;
 }
 
 .Squiggle3 {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 0% 0% 0% 100%;
 }
 
 .Squiggle4 {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 0% 100% 100% 0%;
 }
+
+/* ~~~~~~~~~~ RED ~~~~~~~~~~~ */
 
 /* SQUIGGLE ONE RED */
 #Squiggle1-Red-Empty {
@@ -72,7 +74,6 @@
 }
 
 /* SQUIGGLE THREE RED*/
-
 #Squiggle3-Red-Empty {
   border-left: 5px solid red;
   border-bottom: 5px solid red;
@@ -119,8 +120,9 @@
   border: 3px solid red;
 }
 
-/* SQUIGGLE ONE GREEN */
+/* ~~~~~~~~~~ GREEN ~~~~~~~~~~~ */
 
+/* SQUIGGLE ONE GREEN */
 #Squiggle1-Green-Empty {
   border-top: 5px solid green;
   border-left: 5px solid green;
@@ -138,7 +140,6 @@
 }
 
 /* SQUIGGLE TWO GREEN */
-
 #Squiggle2-Green-Empty {
   border-top: 5px solid green;
   border-right: 5px solid green;
@@ -154,7 +155,6 @@
 }
 
 /* SQUIGGLE THREE GREEN */
-
 #Squiggle3-Green-Empty {
   border-left: 5px solid green;
   border-bottom: 5px solid green;
@@ -170,7 +170,6 @@
 }
 
 /* SQUIGGLE FOUR GREEN */
-
 #Squiggle4-Green-Empty {
   border-right: 5px solid green;
   border-top: 5px solid green;
@@ -186,6 +185,8 @@
   background: green;
   border: 3px solid green;
 }
+
+/* ~~~~~~~~~~ PURPLE ~~~~~~~~~~~ */
 
 /* SQUIGGLE ONE PURPLE */
 #Squiggle1-Purple-Empty {
@@ -222,7 +223,6 @@
 }
 
 /* SQUIGGLE THREE Purple*/
-
 #Squiggle3-Purple-Empty {
   border-left: 5px solid Purple;
   border-bottom: 5px solid Purple;
