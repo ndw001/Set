@@ -8,7 +8,9 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Oval color={props.color} count={props.count} fill={props.fill} />
+          {Array.from(Array(props.count)).map((x, index) => (
+            <Oval color={props.color} count={props.count} fill={props.fill} />
+          ))}
         </div>
       </div>
     );
@@ -16,7 +18,13 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Diamond color={props.color} count={props.count} fill={props.fill} />
+          {Array.from(Array(props.count)).map((x, index) => (
+            <Diamond
+              color={props.color}
+              count={props.count}
+              fill={props.fill}
+            />
+          ))}
         </div>
       </div>
     );
@@ -24,7 +32,13 @@ function Card(props) {
     return (
       <div className="Card">
         <div className="CardSymbol">
-          <Squiggle color={props.color} count={props.count} fill={props.fill} />
+          {Array.from(Array(props.count)).map((x, index) => (
+            <Squiggle
+              color={props.color}
+              count={props.count}
+              fill={props.fill}
+            />
+          ))}
         </div>
       </div>
     );
