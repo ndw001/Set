@@ -1,13 +1,14 @@
 .Card {
+  display: flex;
   outline: solid;
   height: 180px;
   width: 300px;
   border-radius: 20px;
+  justify-content: center;
 }
 
 .CardSymbol {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

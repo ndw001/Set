@@ -1,0 +1,82 @@
+.Oval {
+  width: 80px;
+  height: 120px;
+  border-radius: 50%;
+  transform: rotateY(20deg);
+  z-index: 5;
+}
+
+#Oval-Red-Empty {
+  border: 4px solid red;
+}
+
+#Oval-Red-Lines {
+  border: 4px solid red;
+}
+
+#Oval-Red-Lines::before {
+  content: "____ _____ _____ _____ _____ ___"; /* your dots */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* stretches the before element over the entire surface of the main element */
+  z-index: -1; /* places the ::before element underneath the main div content, as a background */
+  padding-left: 6px; /* letter-spacing adds px after letter, use padding at the beginning to off set it to remain centered. */
+  font-size: 30px;
+  color: red;
+  line-height: 0px;
+}
+
+#Oval-Red-Solid {
+  background-color: red;
+}
+
+#Oval-Green-Empty {
+  border: 4px solid green;
+}
+
+#Oval-Green-Lines {
+  border: 4px solid green;
+}
+
+#Oval-Green-Lines::before {
+  content: "____ _____ _____ _____ _____ ___"; /* your dots */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* stretches the before element over the entire surface of the main element */
+  z-index: -1; /* places the ::before element underneath the main div content, as a background */
+  padding-left: 6px; /* letter-spacing adds px after letter, use padding at the beginning to off set it to remain centered. */
+  font-size: 30px;
+  color: green;
+  line-height: 0px;
+}
+
+#Oval-Green-Solid {
+  background: green;
+}
+
+#Oval-Purple-Empty {
+  border: 4px solid purple;
+}
+
+#Oval-Purple-Lines {
+  border: 4px solid purple;
+}
+
+#Oval-Purple-Lines::before {
+  content: "____ _____ _____ _____ _____ ___"; /* your dots */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* stretches the before element over the entire surface of the main element */
+  z-index: -1; /* places the ::before element underneath the main div content, as a background */
+  padding-left: 6px; /* letter-spacing adds px after letter, use padding at the beginning to off set it to remain centered. */
+  font-size: 30px;
+  color: purple;
+  line-height: 0px;
+}
+
+#Oval-Purple-Solid {
+  background: purple;
+}
