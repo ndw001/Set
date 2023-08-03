@@ -4,7 +4,7 @@ import SquiggleGreenLines from "./SVGs/Squiggle-Green-Lines.svg";
 import SquigglePurpleLines from "./SVGs/Squiggle-Purple-Lines.svg";
 
 import SquiggleRedEmpty from "./SVGs/Squiggle-Red-Empty.svg";
-// import SquiggleGreenEmpty from "./SVGs/Squiggle-Green-Empty.svg";
+import SquiggleGreenEmpty from "./SVGs/Squiggle-Green-Empty.svg";
 import SquigglePurpleEmpty from "./SVGs/Squiggle-Purple-Empty.svg";
 
 import SquiggleRedSolid from "./SVGs/Squiggle-Red-Solid.svg";
@@ -25,8 +25,8 @@ function Squiggle(props) {
   } else if (props.fill === "Empty") {
     if (props.color === "Red") {
       return <img src={SquiggleRedEmpty} alt={sgvString} height="145" />;
-      // } else if (props.color === "Green") {
-      //   return <img src={SquiggleGreenEmpty} alt={sgvString} height="145" />;
+    } else if (props.color === "Green") {
+      return <img src={SquiggleGreenEmpty} alt={sgvString} height="145" />;
     } else if (props.color === "Purple") {
       return <img src={SquigglePurpleEmpty} alt={sgvString} height="145" />;
     }
