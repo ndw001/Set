@@ -28,7 +28,7 @@ function GameBoard(props) {
   function checkSet(arrayOfCards) {
     const sameShape = arrayOfCards[0].shape === arrayOfCards[1].shape;
     const sameColor = arrayOfCards[0].color === arrayOfCards[1].color;
-    const sameShade = arrayOfCards[0].shade === arrayOfCards[1].shade;
+    const sameFill = arrayOfCards[0].fill === arrayOfCards[1].fill;
     const sameCount = arrayOfCards[0].count === arrayOfCards[1].count;
     if (
       !(
@@ -55,10 +55,10 @@ function GameBoard(props) {
 
     if (
       !(
-        (sameShade && arrayOfCards[1].shade === arrayOfCards[2].shade) ||
-        (!sameShade &&
-          arrayOfCards[0].shade !== arrayOfCards[2].shade &&
-          arrayOfCards[1].shade !== arrayOfCards[2].shade)
+        (sameFill && arrayOfCards[1].fill === arrayOfCards[2].fill) ||
+        (!sameFill &&
+          arrayOfCards[0].fill !== arrayOfCards[2].fill &&
+          arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
       endCheck(false);
@@ -76,12 +76,6 @@ function GameBoard(props) {
       endCheck(false);
       return;
     }
-    console.log(
-      "All the colors ",
-      arrayOfCards[0].color !== arrayOfCards[1].color,
-      arrayOfCards[1].color !== arrayOfCards[2].color,
-      arrayOfCards[2].color !== arrayOfCards[0].color
-    );
     endCheck(true);
     return;
   }
