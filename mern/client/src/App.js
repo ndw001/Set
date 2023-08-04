@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header.js";
 import GameBoard from "./components/GameBoard.js";
