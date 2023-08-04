@@ -1,0 +1,10 @@
+.Gameboard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.CardRow {
+  display: flex;
+  margin: 15px;
+}
