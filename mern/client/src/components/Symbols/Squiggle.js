@@ -13,7 +13,6 @@ import SquigglePurpleSolid from "./SVGs/Squiggle-Purple-Solid.svg";
 
 function Squiggle(props) {
   const sgvString = `Squiggle-${props.color}-Lines.svg`;
-  console.log("this is fill ", props.fill);
   if (props.fill === "Lines") {
     if (props.color === "Red") {
       return <img src={SquiggleRedLines} alt={sgvString} height="145" />;

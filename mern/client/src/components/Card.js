@@ -8,9 +8,15 @@ function Card(props) {
     return (
       <div
         className="Card"
-        onClick={() =>
-          props.click(props.shape, props.color, props.fill, props.count)
-        }
+        onClick={() => {
+          const cardObject = {
+            shape: props.shape,
+            color: props.color,
+            fill: props.fill,
+            count: props.count,
+          };
+          props.click(cardObject);
+        }}
       >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
@@ -23,9 +29,15 @@ function Card(props) {
     return (
       <div
         className="Card"
-        onClick={() =>
-          props.click(props.shape, props.color, props.fill, props.count)
-        }
+        onClick={() => {
+          const cardObject = {
+            shape: props.shape,
+            color: props.color,
+            fill: props.fill,
+            count: props.count,
+          };
+          props.click(cardObject);
+        }}
       >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
@@ -42,9 +54,15 @@ function Card(props) {
     return (
       <div
         className="Card"
-        onClick={() =>
-          props.click(props.shape, props.color, props.fill, props.count)
-        }
+        onClick={() => {
+          const cardObject = {
+            shape: props.shape,
+            color: props.color,
+            fill: props.fill,
+            count: props.count,
+          };
+          props.click(cardObject);
+        }}
       >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
