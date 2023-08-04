@@ -33,7 +33,8 @@ function GameBoard(props) {
     if (
       !(
         (sameShape && arrayOfCards[1].shape === arrayOfCards[2].shape) ||
-        (arrayOfCards[0].shape !== arrayOfCards[2].shape &&
+        (!sameShape &&
+          arrayOfCards[0].shape !== arrayOfCards[2].shape &&
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
@@ -43,7 +44,8 @@ function GameBoard(props) {
     if (
       !(
         (sameColor && arrayOfCards[1].color === arrayOfCards[2].color) ||
-        (arrayOfCards[0].color !== arrayOfCards[2].color &&
+        (!sameColor &&
+          arrayOfCards[0].color !== arrayOfCards[2].color &&
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
@@ -54,7 +56,8 @@ function GameBoard(props) {
     if (
       !(
         (sameShade && arrayOfCards[1].shade === arrayOfCards[2].shade) ||
-        (arrayOfCards[0].shade !== arrayOfCards[2].shade &&
+        (!sameShade &&
+          arrayOfCards[0].shade !== arrayOfCards[2].shade &&
           arrayOfCards[1].shade !== arrayOfCards[2].shade)
       )
     ) {
@@ -65,13 +68,20 @@ function GameBoard(props) {
     if (
       !(
         (sameCount && arrayOfCards[1].count === arrayOfCards[2].count) ||
-        (arrayOfCards[0].count !== arrayOfCards[2].count &&
+        (!sameCount &&
+          arrayOfCards[0].count !== arrayOfCards[2].count &&
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
       endCheck(false);
       return;
     }
+    console.log(
+      "All the colors ",
+      arrayOfCards[0].color !== arrayOfCards[1].color,
+      arrayOfCards[1].color !== arrayOfCards[2].color,
+      arrayOfCards[2].color !== arrayOfCards[0].color
+    );
     endCheck(true);
     return;
   }
