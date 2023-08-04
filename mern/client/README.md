@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# HOW TO PLAY
+
+Set is a matching game using a deck of all unique cards. A successful match ("Set") contains three cards. Each card has 4 attributes: Shape, Color, Shade, Count. Each of these attributes will be one of three options (see below). To create a successful Set, each of the attribute of each card will either be all the same, or all different.
+
+- Example Sets:
+  Oval, Red, Empty, One
+  Oval, Red, Empty, Two
+  Oval, Red, Empty, Three
+  Looking at the attributes, Shape is ALL the same, Color is ALL the same, Shade is ALL the same, and Count is ALL different.
+
+Oval, Red, Empty, One
+Diamond, Green, Empty, Two
+Squiggle, Purple, Empty, Three
+Looking at the attributes, Shape is ALL different, Color is ALL different, Shade is ALL the same, and Count is ALL different.
+
+- Example Not Sets:
+  Oval, Red, Empty, One
+  Oval, Red, Empty, Two
+  Diamond, Red, Empty, Three
+  Looking at the attributes, Shape is NOT ALL the same or ALL different, which makes this unsuccessful as a Set regardless of the other attributes
+
+Oval, Red, Empty, One
+Oval, Green, Empty, Two
+Oval, Purple, Filled, Three
+Looking at the attributes, Shape is ALL the same, Color is ALL different, Shade is neither ALL the same nor ALL different, and Count is ALL different.
