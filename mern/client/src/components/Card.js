@@ -6,7 +6,12 @@ import Squiggle from "./Symbols/Squiggle";
 function Card(props) {
   if (props.shape === "Oval") {
     return (
-      <div className="Card">
+      <div
+        className="Card"
+        onClick={() =>
+          props.click(props.shape, props.color, props.fill, props.count)
+        }
+      >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
             <Oval color={props.color} count={props.count} fill={props.fill} />
@@ -16,7 +21,12 @@ function Card(props) {
     );
   } else if (props.shape === "Diamond") {
     return (
-      <div className="Card">
+      <div
+        className="Card"
+        onClick={() =>
+          props.click(props.shape, props.color, props.fill, props.count)
+        }
+      >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
             <Diamond
@@ -30,7 +40,12 @@ function Card(props) {
     );
   } else if (props.shape === "Squiggle") {
     return (
-      <div className="Card">
+      <div
+        className="Card"
+        onClick={() =>
+          props.click(props.shape, props.color, props.fill, props.count)
+        }
+      >
         <div className="CardSymbol">
           {Array.from(Array(props.count)).map((x, index) => (
             <Squiggle
