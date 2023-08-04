@@ -8,3 +8,11 @@
   display: flex;
   margin: 15px;
 }
+
+.Points {
+  padding: 5px;
+}
+
+.Alerts {
+  padding: 5px;
+}

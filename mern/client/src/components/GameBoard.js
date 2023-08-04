@@ -1,88 +1,87 @@
 import "./GameBoard.css";
 import Card from "./Card";
 import { useState } from "react";
+
 const _ = require("lodash");
 
-function GameBoard() {
+function GameBoard(props) {
   const remainingDeck = {};
   const [selectedCards, setSelectedCards] = useState([]);
-  // Shape, Color, Shade, Count
+  const [alert, setAlert] = useState("");
+  const [points, setPoints] = useState(0);
 
-  // Oval, Diamond, Squiggle
-  // Red, Green, Purple
-  // Empty, Lines, Solid
-  // One, Two, Three
+  function endCheck(isSet) {
+    if (isSet) {
+      setAlert("This is a Set");
+      setPoints(points + 1);
+      // Remove Cards from Board and add 3
+      setSelectedCards([]);
+    } else {
+      setAlert("This is NOT a Set");
+      setPoints(points - 1);
+      setSelectedCards([]);
+
+      return;
+    }
+  }
 
   function checkSet(arrayOfCards) {
     const sameShape = arrayOfCards[0].shape === arrayOfCards[1].shape;
     const sameColor = arrayOfCards[0].color === arrayOfCards[1].color;
-    const sameShade = arrayOfCards[0].shade === arrayOfCards[1].shade;
+    const sameFill = arrayOfCards[0].fill === arrayOfCards[1].fill;
     const sameCount = arrayOfCards[0].count === arrayOfCards[1].count;
     if (
       !(
         (sameShape && arrayOfCards[1].shape === arrayOfCards[2].shape) ||
-        (arrayOfCards[0].shape !== arrayOfCards[2].shape &&
+        (!sameShape &&
+          arrayOfCards[0].shape !== arrayOfCards[2].shape &&
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
-      // Not a Set Alert
-      console.log("This is NOT a Set ");
-      setSelectedCards([]);
-
+      endCheck(false);
       return;
     }
     if (
       !(
         (sameColor && arrayOfCards[1].color === arrayOfCards[2].color) ||
-        (arrayOfCards[0].color !== arrayOfCards[2].color &&
+        (!sameColor &&
+          arrayOfCards[0].color !== arrayOfCards[2].color &&
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
-      // Not a Set Alert
-      console.log("This is NOT a Set ");
-      setSelectedCards([]);
-
+      endCheck(false);
       return;
     }
 
     if (
       !(
-        (sameShade && arrayOfCards[1].shade === arrayOfCards[2].shade) ||
-        (arrayOfCards[0].shade !== arrayOfCards[2].shade &&
-          arrayOfCards[1].shade !== arrayOfCards[2].shade)
+        (sameFill && arrayOfCards[1].fill === arrayOfCards[2].fill) ||
+        (!sameFill &&
+          arrayOfCards[0].fill !== arrayOfCards[2].fill &&
+          arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
-      // Not a Set Alert
-      console.log("This is NOT a Set ");
-      setSelectedCards([]);
-
+      endCheck(false);
       return;
     }
 
     if (
       !(
         (sameCount && arrayOfCards[1].count === arrayOfCards[2].count) ||
-        (arrayOfCards[0].count !== arrayOfCards[2].count &&
+        (!sameCount &&
+          arrayOfCards[0].count !== arrayOfCards[2].count &&
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
-      // Not a Set Alert
-      console.log("This is NOT a Set ");
-      setSelectedCards([]);
-
+      endCheck(false);
       return;
     }
-
-    // Set Alert
-    console.log("This is a Set ");
-
-    // Increase Point
-    // Remove Cards from Board and add 3
-    setSelectedCards([]);
+    endCheck(true);
     return;
   }
 
   function selectCard(cardObject) {
+    setAlert("");
     const currentCards = selectedCards;
     for (let i = 0; i < selectedCards.length; i++) {
       if (_.isEqual(selectedCards[i], cardObject)) {
@@ -102,6 +101,8 @@ function GameBoard() {
 
   return (
     <div className="GameBoard">
+      <div className="Points">Points: {points} </div>
+      <div className="Alerts">{alert}</div>
       <div className="CardRow">
         <Card
           className="Card"
