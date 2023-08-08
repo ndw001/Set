@@ -48,7 +48,6 @@ function GameBoard(props) {
       for (let i = 0; i < 3; i++) {
         if (rowOne[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
-          console.log("Remove CurrentDeck card ", currentDeck.length);
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -57,8 +56,6 @@ function GameBoard(props) {
           found += 1;
         } else if (rowTwo[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
-          console.log("Remove CurrentDeck card ", currentDeck.length);
-
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -67,8 +64,6 @@ function GameBoard(props) {
           found += 1;
         } else if (rowThree[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
-          console.log("Remove CurrentDeck card ", currentDeck.length);
-
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -77,8 +72,6 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFour[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
-          console.log("Remove CurrentDeck card ", currentDeck.length);
-
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -87,8 +80,6 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFive[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
-          console.log("Remove CurrentDeck card ", currentDeck.length);
-
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -230,7 +221,7 @@ function GameBoard(props) {
     setRowFive(getThreeCards(allCards, currentDeck));
   }
 
-  console.log("This is the currentDeck.length ", currentDeck.length);
+  console.log("These are the cards ", allCards);
 
   return (
     <div className="GameBoard">
@@ -241,112 +232,6 @@ function GameBoard(props) {
       {populateRow(rowThree, 3)}
       {populateRow(rowFour, 4)}
       {populateRow(rowFive, 5)}
-
-      {/*
-      <div className="CardRow">
-        <Card
-          className="Card"
-          shape={"Oval"}
-          color={"Red"}
-          fill={"Empty"}
-          count={1}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Oval"}
-          color={"Red"}
-          fill={"Empty"}
-          count={2}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Oval"}
-          color={"Red"}
-          fill={"Empty"}
-          count={3}
-          click={selectCard}
-        />
-
-        <Card
-          className="Card"
-          shape={"Diamond"}
-          color={"Red"}
-          fill={"Empty"}
-          count={1}
-          click={selectCard}
-        />
-      </div>
-      <div className="CardRow">
-        <Card
-          className="Card"
-          shape={"Diamond"}
-          color={"Green"}
-          fill={"Lines"}
-          count={1}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Diamond"}
-          color={"Purple"}
-          fill={"Lines"}
-          count={2}
-          click={selectCard}
-        />
-
-        <Card
-          className="Card"
-          shape={"Diamond"}
-          color={"Red"}
-          fill={"Lines"}
-          count={3}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Squiggle"}
-          color={"Green"}
-          fill={"Lines"}
-          count={2}
-          click={selectCard}
-        />
-      </div>
-      <div className="CardRow">
-        <Card
-          className="Card"
-          shape={"Squiggle"}
-          color={"Purple"}
-          fill={"Solid"}
-          count={1}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Squiggle"}
-          color={"Green"}
-          fill={"Lines"}
-          count={2}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Squiggle"}
-          color={"Red"}
-          fill={"Empty"}
-          count={3}
-          click={selectCard}
-        />
-        <Card
-          className="Card"
-          shape={"Oval"}
-          color={"Purple"}
-          fill={"Solid"}
-          count={3}
-          click={selectCard}
-        />
-      </div> */}
     </div>
   );
 }
