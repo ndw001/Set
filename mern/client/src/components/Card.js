@@ -14,6 +14,7 @@ function Card(props) {
             color: props.color,
             fill: props.fill,
             count: props.count,
+            cardNumber: props.cardNumber,
           };
           props.click(cardObject);
         }}
@@ -35,6 +36,7 @@ function Card(props) {
             color: props.color,
             fill: props.fill,
             count: props.count,
+            cardNumber: props.cardNumber,
           };
           props.click(cardObject);
         }}
@@ -60,6 +62,7 @@ function Card(props) {
             color: props.color,
             fill: props.fill,
             count: props.count,
+            cardNumber: props.cardNumber,
           };
           props.click(cardObject);
         }}
