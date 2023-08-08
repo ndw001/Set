@@ -8,6 +8,7 @@ const _ = require("lodash");
 function GameBoard(props) {
   const allCards = populateDeck();
   const currentDeck = createDeckOrder([]);
+  // const [currentDeck, setCurrentDeck] = useState([]);
   const [rowOne, setRowOne] = useState([]);
   const [rowTwo, setRowTwo] = useState([]);
   const [rowThree, setRowThree] = useState([]);
@@ -19,6 +20,8 @@ function GameBoard(props) {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
+    // const newOrder = createDeckOrder([]);
+    // setCurrentDeck(newOrder);
     firstBoard();
   }, []);
 
@@ -45,6 +48,7 @@ function GameBoard(props) {
       for (let i = 0; i < 3; i++) {
         if (rowOne[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+          console.log("Remove CurrentDeck card ", currentDeck.length);
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -53,6 +57,8 @@ function GameBoard(props) {
           found += 1;
         } else if (rowTwo[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+          console.log("Remove CurrentDeck card ", currentDeck.length);
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -61,6 +67,8 @@ function GameBoard(props) {
           found += 1;
         } else if (rowThree[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+          console.log("Remove CurrentDeck card ", currentDeck.length);
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -69,6 +77,8 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFour[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+          console.log("Remove CurrentDeck card ", currentDeck.length);
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -77,6 +87,8 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFive[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+          console.log("Remove CurrentDeck card ", currentDeck.length);
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -217,6 +229,8 @@ function GameBoard(props) {
     setRowFour(getThreeCards(allCards, currentDeck));
     setRowFive(getThreeCards(allCards, currentDeck));
   }
+
+  console.log("This is the currentDeck.length ", currentDeck.length);
 
   return (
     <div className="GameBoard">
