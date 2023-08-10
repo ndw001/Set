@@ -7,8 +7,7 @@ const _ = require("lodash");
 
 function GameBoard(props) {
   const allCards = populateDeck();
-  const currentDeck = createDeckOrder([]);
-  // const [currentDeck, setCurrentDeck] = useState([]);
+  const [currentDeck, setCurrentDeck] = useState([]);
   const [rowOne, setRowOne] = useState([]);
   const [rowTwo, setRowTwo] = useState([]);
   const [rowThree, setRowThree] = useState([]);
@@ -20,9 +19,9 @@ function GameBoard(props) {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
-    // const newOrder = createDeckOrder([]);
-    // setCurrentDeck(newOrder);
-    firstBoard();
+    const newOrder = createDeckOrder([]);
+    setCurrentDeck(newOrder);
+    firstBoard(allCards, newOrder);
   }, []);
 
   function endCheck(isSet, cardOneNumber, cardTwoNumber, cardThreeNumber) {
@@ -200,7 +199,7 @@ function GameBoard(props) {
     return threeCards;
   }
 
-  function populateRow(oneRow, num) {
+  function populateRow(oneRow) {
     return (
       <div className="CardRow">
         {oneRow.map((card) => (
@@ -218,7 +217,7 @@ function GameBoard(props) {
     );
   }
 
-  function firstBoard() {
+  function firstBoard(allCards, currentDeck) {
     setRowOne(getThreeCards(allCards, currentDeck));
     setRowTwo(getThreeCards(allCards, currentDeck));
     setRowThree(getThreeCards(allCards, currentDeck));
@@ -234,24 +233,16 @@ function GameBoard(props) {
 
   console.log("These are the cards CURRENT DECK ", currentDeck);
 
-  // console.log(
-  //   "These are the cards CURRENT DECK IN ORDER  ",
-  //   currentDeck.sort(function (a, b) {
-  //     return a - b;
-  //   })
-  // );
-
-  // console.log("These are the cards ", allCards);
-
   return (
     <div className="GameBoard">
       <div className="Points">Points: {points} </div>
       <div className="Alerts">{alert}</div>
-      {populateRow(rowOne, 1)}
-      {populateRow(rowTwo, 2)}
-      {populateRow(rowThree, 3)}
-      {populateRow(rowFour, 4)}
-      {populateRow(rowFive, 5)}
+
+      {populateRow(rowOne)}
+      {populateRow(rowTwo)}
+      {populateRow(rowThree)}
+      {populateRow(rowFour)}
+      {populateRow(rowFive)}
     </div>
   );
 }
