@@ -7,8 +7,7 @@ const _ = require("lodash");
 
 function GameBoard(props) {
   const allCards = populateDeck();
-  const currentDeck = createDeckOrder([]);
-  // const [currentDeck, setCurrentDeck] = useState([]);
+  const [currentDeck, setCurrentDeck] = useState([]);
   const [rowOne, setRowOne] = useState([]);
   const [rowTwo, setRowTwo] = useState([]);
   const [rowThree, setRowThree] = useState([]);
@@ -20,9 +19,9 @@ function GameBoard(props) {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
-    // const newOrder = createDeckOrder([]);
-    // setCurrentDeck(newOrder);
-    firstBoard();
+    const newOrder = createDeckOrder([]);
+    setCurrentDeck(newOrder);
+    firstBoard(allCards, newOrder);
   }, []);
 
   function endCheck(isSet, cardOneNumber, cardTwoNumber, cardThreeNumber) {
@@ -56,6 +55,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowTwo[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -64,6 +64,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowThree[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -72,6 +73,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFour[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -80,6 +82,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFive[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -169,9 +172,8 @@ function GameBoard(props) {
   }
 
   function createDeckOrder(deck) {
-    if (deck.length < 82) {
-      // WHY DOES 81 NOT WORK
-      const newNum = Math.floor(Math.random() * 82) + 1;
+    if (deck.length < 81) {
+      const newNum = Math.floor(Math.random() * 81) + 1;
       if (deck.find((num) => num === newNum)) {
         createDeckOrder(deck);
       } else {
@@ -188,6 +190,8 @@ function GameBoard(props) {
     const threeCards = [];
     for (let k = 0; k < 3; k++) {
       const searchFor = deckOrder.pop();
+      console.log("This is the Rando Number ", searchFor);
+
       threeCards.push(
         currentDeck.filter((card) => card.cardNumber === searchFor)[0]
       );
@@ -195,7 +199,7 @@ function GameBoard(props) {
     return threeCards;
   }
 
-  function populateRow(oneRow, num) {
+  function populateRow(oneRow) {
     return (
       <div className="CardRow">
         {oneRow.map((card) => (
@@ -213,25 +217,32 @@ function GameBoard(props) {
     );
   }
 
-  function firstBoard() {
+  function firstBoard(allCards, currentDeck) {
     setRowOne(getThreeCards(allCards, currentDeck));
     setRowTwo(getThreeCards(allCards, currentDeck));
     setRowThree(getThreeCards(allCards, currentDeck));
     setRowFour(getThreeCards(allCards, currentDeck));
-    setRowFive(getThreeCards(allCards, currentDeck));
+    // setRowFive(getThreeCards(allCards, currentDeck));
   }
 
-  console.log("These are the cards ", allCards);
+  console.log("ROW ONE ", rowOne);
+  console.log("ROW TWO ", rowTwo);
+  console.log("ROW THREE ", rowThree);
+  console.log("ROW FOUR ", rowFour);
+  console.log("ROW FIVE ", rowFive);
+
+  console.log("These are the cards CURRENT DECK ", currentDeck);
 
   return (
     <div className="GameBoard">
       <div className="Points">Points: {points} </div>
       <div className="Alerts">{alert}</div>
-      {populateRow(rowOne, 1)}
-      {populateRow(rowTwo, 2)}
-      {populateRow(rowThree, 3)}
-      {populateRow(rowFour, 4)}
-      {populateRow(rowFive, 5)}
+
+      {populateRow(rowOne)}
+      {populateRow(rowTwo)}
+      {populateRow(rowThree)}
+      {populateRow(rowFour)}
+      {populateRow(rowFive)}
     </div>
   );
 }
