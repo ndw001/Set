@@ -12,6 +12,7 @@ function GameBoard(props) {
   const [rowTwo, setRowTwo] = useState([]);
   const [rowThree, setRowThree] = useState([]);
   const [rowFour, setRowFour] = useState([]);
+  const [displayRowFive, setDisplayRowFive] = useState(false);
   const [rowFive, setRowFive] = useState([]);
 
   const [selectedCards, setSelectedCards] = useState([]);
@@ -80,7 +81,7 @@ function GameBoard(props) {
           rowFour.splice(i, 1, newCard);
           setRowFour(rowFour);
           found += 1;
-        } else if (rowFive[i].cardNumber === cardNumber) {
+        } else if (displayRowFive && rowFive[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
 
           const newCard = allCards.filter(
@@ -242,7 +243,7 @@ function GameBoard(props) {
       {populateRow(rowTwo)}
       {populateRow(rowThree)}
       {populateRow(rowFour)}
-      {populateRow(rowFive)}
+      {displayRowFive && populateRow(rowFive)}
     </div>
   );
 }
