@@ -56,6 +56,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowTwo[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -64,6 +65,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowThree[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -72,6 +74,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFour[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -80,6 +83,7 @@ function GameBoard(props) {
           found += 1;
         } else if (rowFive[i].cardNumber === cardNumber) {
           const newCardNumber = currentDeck.pop();
+
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
@@ -169,9 +173,8 @@ function GameBoard(props) {
   }
 
   function createDeckOrder(deck) {
-    if (deck.length < 82) {
-      // WHY DOES 81 NOT WORK
-      const newNum = Math.floor(Math.random() * 82) + 1;
+    if (deck.length < 81) {
+      const newNum = Math.floor(Math.random() * 81) + 1;
       if (deck.find((num) => num === newNum)) {
         createDeckOrder(deck);
       } else {
@@ -188,6 +191,8 @@ function GameBoard(props) {
     const threeCards = [];
     for (let k = 0; k < 3; k++) {
       const searchFor = deckOrder.pop();
+      console.log("This is the Rando Number ", searchFor);
+
       threeCards.push(
         currentDeck.filter((card) => card.cardNumber === searchFor)[0]
       );
@@ -221,7 +226,22 @@ function GameBoard(props) {
     setRowFive(getThreeCards(allCards, currentDeck));
   }
 
-  console.log("These are the cards ", allCards);
+  console.log("ROW ONE ", rowOne);
+  console.log("ROW TWO ", rowTwo);
+  console.log("ROW THREE ", rowThree);
+  console.log("ROW FOUR ", rowFour);
+  console.log("ROW FIVE ", rowFive);
+
+  console.log("These are the cards CURRENT DECK ", currentDeck);
+
+  // console.log(
+  //   "These are the cards CURRENT DECK IN ORDER  ",
+  //   currentDeck.sort(function (a, b) {
+  //     return a - b;
+  //   })
+  // );
+
+  // console.log("These are the cards ", allCards);
 
   return (
     <div className="GameBoard">
