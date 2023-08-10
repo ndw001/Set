@@ -1,5 +1,6 @@
 import "./GameBoard.css";
 import Card from "./Card";
+import Timer from "./Timer";
 import { useState, useEffect } from "react";
 import populateDeck from "./helperFunctions";
 
@@ -15,6 +16,7 @@ function GameBoard(props) {
   const [displayRowFive, setDisplayRowFive] = useState(false);
   const [rowFive, setRowFive] = useState([]);
 
+  const [time, setTime] = useState(0);
   const [selectedCards, setSelectedCards] = useState([]);
   const [alert, setAlert] = useState("");
   const [points, setPoints] = useState(0);
@@ -236,6 +238,8 @@ function GameBoard(props) {
 
   return (
     <div className="GameBoard">
+      <Timer time={time} setTime={setTime} />
+      {/* <div className="Timer">Time: {time} </div> */}
       <div className="Points">Points: {points} </div>
       <div className="Alerts">{alert}</div>
 
