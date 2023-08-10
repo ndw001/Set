@@ -222,7 +222,7 @@ function GameBoard(props) {
     setRowTwo(getThreeCards(allCards, currentDeck));
     setRowThree(getThreeCards(allCards, currentDeck));
     setRowFour(getThreeCards(allCards, currentDeck));
-    setRowFive(getThreeCards(allCards, currentDeck));
+    // setRowFive(getThreeCards(allCards, currentDeck));
   }
 
   console.log("ROW ONE ", rowOne);
