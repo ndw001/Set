@@ -1,6 +1,8 @@
 import "./GameBoard.css";
 import Card from "./Card";
 import Timer from "./Timer";
+import NoSetButton from "./NoSetButton";
+
 import { useState, useEffect } from "react";
 import populateDeck from "./helperFunctions";
 
@@ -29,12 +31,17 @@ function GameBoard(props) {
 
   function endCheck(isSet, cardOneNumber, cardTwoNumber, cardThreeNumber) {
     if (isSet) {
-      setAlert("This is a Set");
-      setPoints(points + 1);
-      removeAndReplaceCard(cardOneNumber);
-      removeAndReplaceCard(cardTwoNumber);
-      removeAndReplaceCard(cardThreeNumber);
-      setSelectedCards([]);
+      if (displayRowFive) {
+        setDisplayRowFive(false);
+        // FILL IN CARDS
+      } else {
+        setAlert("This is a Set");
+        setPoints(points + 1);
+        removeAndReplaceCard(cardOneNumber);
+        removeAndReplaceCard(cardTwoNumber);
+        removeAndReplaceCard(cardThreeNumber);
+        setSelectedCards([]);
+      }
     } else {
       setAlert("This is NOT a Set");
       setPoints(points - 1);
@@ -97,7 +104,7 @@ function GameBoard(props) {
     }
   }
 
-  function checkSet(arrayOfCards) {
+  function checkSet(arrayOfCards, noSetCheck) {
     const sameShape = arrayOfCards[0].shape === arrayOfCards[1].shape;
     const sameColor = arrayOfCards[0].color === arrayOfCards[1].color;
     const sameFill = arrayOfCards[0].fill === arrayOfCards[1].fill;
@@ -110,8 +117,18 @@ function GameBoard(props) {
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
-      endCheck(false);
-      return;
+      if (noSetCheck) {
+        console.log(
+          "Did no find a Set with ",
+          arrayOfCards[0],
+          arrayOfCards[1],
+          arrayOfCards[2]
+        );
+        return false;
+      } else {
+        endCheck(false);
+        return;
+      }
     }
     if (
       !(
@@ -121,8 +138,18 @@ function GameBoard(props) {
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
-      endCheck(false);
-      return;
+      if (noSetCheck) {
+        console.log(
+          "Did no find a Set with ",
+          arrayOfCards[0],
+          arrayOfCards[1],
+          arrayOfCards[2]
+        );
+        return false;
+      } else {
+        endCheck(false);
+        return;
+      }
     }
 
     if (
@@ -133,8 +160,18 @@ function GameBoard(props) {
           arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
-      endCheck(false);
-      return;
+      if (noSetCheck) {
+        console.log(
+          "Did no find a Set with ",
+          arrayOfCards[0],
+          arrayOfCards[1],
+          arrayOfCards[2]
+        );
+        return false;
+      } else {
+        endCheck(false);
+        return;
+      }
     }
 
     if (
@@ -145,16 +182,37 @@ function GameBoard(props) {
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
-      endCheck(false);
+      if (noSetCheck) {
+        console.log(
+          "Did no find a Set with ",
+          arrayOfCards[0],
+          arrayOfCards[1],
+          arrayOfCards[2]
+        );
+        return false;
+      } else {
+        endCheck(false);
+        return;
+      }
+    }
+
+    if (noSetCheck) {
+      console.log(
+        "============ FOUND A Set with ",
+        arrayOfCards[0],
+        arrayOfCards[1],
+        arrayOfCards[2]
+      );
+      return true;
+    } else {
+      endCheck(
+        true,
+        arrayOfCards[0].cardNumber,
+        arrayOfCards[1].cardNumber,
+        arrayOfCards[2].cardNumber
+      );
       return;
     }
-    endCheck(
-      true,
-      arrayOfCards[0].cardNumber,
-      arrayOfCards[1].cardNumber,
-      arrayOfCards[2].cardNumber
-    );
-    return;
   }
 
   function selectCard(cardObject) {
@@ -193,7 +251,7 @@ function GameBoard(props) {
     const threeCards = [];
     for (let k = 0; k < 3; k++) {
       const searchFor = deckOrder.pop();
-      console.log("This is the Rando Number ", searchFor);
+      // console.log("This is the Rando Number ", searchFor);
 
       threeCards.push(
         currentDeck.filter((card) => card.cardNumber === searchFor)[0]
@@ -225,23 +283,139 @@ function GameBoard(props) {
     setRowTwo(getThreeCards(allCards, currentDeck));
     setRowThree(getThreeCards(allCards, currentDeck));
     setRowFour(getThreeCards(allCards, currentDeck));
-    // setRowFive(getThreeCards(allCards, currentDeck));
+    if (displayRowFive) {
+      setRowFive(getThreeCards(allCards, currentDeck));
+    }
   }
 
-  console.log("ROW ONE ", rowOne);
-  console.log("ROW TWO ", rowTwo);
-  console.log("ROW THREE ", rowThree);
-  console.log("ROW FOUR ", rowFour);
-  console.log("ROW FIVE ", rowFive);
+  // console.log("ROW ONE ", rowOne);
+  // console.log("ROW TWO ", rowTwo);
+  // console.log("ROW THREE ", rowThree);
+  // console.log("ROW FOUR ", rowFour);
+  // console.log("ROW FIVE ", rowFive);
 
-  console.log("These are the cards CURRENT DECK ", currentDeck);
+  // console.log("These are the cards CURRENT DECK ", currentDeck);
+
+  function checkBoardForSet() {
+    const fullBoard = rowOne.concat(rowTwo, rowThree, rowFour);
+    console.log("This is full board ", fullBoard);
+    const setArray = [];
+    for (let i = 0; i < fullBoard.length; i++) {
+      for (let k = i; k < fullBoard.length; k++) {
+        console.log("Okay ", i, " k ", k);
+
+        if (!(i === k)) {
+          console.log("Okay ", i, " k ", k);
+
+          if (
+            setArray.includes(fullBoard[i].cardNumber) ||
+            setArray.includes(fullBoard[k].cardNumber)
+          ) {
+            console.log(" This is the Set ", fullBoard[i], fullBoard[k]);
+            console.log("Wrong");
+
+            return true;
+          } else {
+            console.log("Right");
+
+            setArray.push(
+              findThirdCardInSet([fullBoard[i], fullBoard[k]]).cardNumber
+            );
+          }
+        }
+      }
+    }
+    console.log("This is the setArray", setArray);
+    return false;
+
+    // const columnOne = [rowOne[0], rowTwo[0], rowThree[0], rowFour[0]];
+    // const columnTwo = [rowOne[1], rowTwo[1], rowThree[1], rowFour[1]];
+    // const columnThree = [rowOne[2], rowTwo[2], rowThree[2], rowFour[2]];
+    // // Inter Column
+
+    // // Across Columns
+    // for (let i = 0; i < 4; i++) {
+    //   for (let k = 0; k < 4; k++) {
+    //     for (let g = 0; g < 4; g++) {
+    //       if (checkSet([columnOne[i], columnTwo[k], columnThree[g]], true)) {
+    //         return true;
+    //       }
+    //     }
+    //   }
+    // }
+    // return false;
+  }
+
+  // checkBoardForSet();
+
+  function findThirdCardInSet(arrayofTwoCards) {
+    const allShape = ["Oval", "Diamond", "Squiggle"];
+    const allColor = ["Red", "Green", "Purple"];
+    const allFill = ["Empty", "Lines", "Solid"];
+    const allCount = [1, 2, 3];
+
+    const thirdCard = {};
+
+    if (arrayofTwoCards[0].shape === arrayofTwoCards[1].shape) {
+      thirdCard.shape = arrayofTwoCards[0].shape;
+    } else {
+      thirdCard.shape = allShape.filter(
+        (value) =>
+          ![arrayofTwoCards[0].shape, arrayofTwoCards[1].shape].includes(value)
+      )[0];
+    }
+
+    if (arrayofTwoCards[0].color === arrayofTwoCards[1].color) {
+      thirdCard.color = arrayofTwoCards[0].color;
+    } else {
+      thirdCard.color = allColor.filter(
+        (value) =>
+          ![arrayofTwoCards[0].color, arrayofTwoCards[1].color].includes(value)
+      )[0];
+    }
+
+    if (arrayofTwoCards[0].fill === arrayofTwoCards[1].fill) {
+      thirdCard.fill = arrayofTwoCards[0].fill;
+    } else {
+      thirdCard.fill = allFill.filter(
+        (value) =>
+          ![arrayofTwoCards[0].fill, arrayofTwoCards[1].fill].includes(value)
+      )[0];
+    }
+
+    if (arrayofTwoCards[0].count === arrayofTwoCards[1].count) {
+      thirdCard.count = arrayofTwoCards[0].count;
+    } else {
+      thirdCard.count = allCount.filter(
+        (value) =>
+          ![arrayofTwoCards[0].count, arrayofTwoCards[1].count].includes(value)
+      )[0];
+    }
+
+    return allCards.find(
+      (card) =>
+        card.shape === thirdCard.shape &&
+        card.color === thirdCard.color &&
+        card.fill === thirdCard.fill &&
+        card.count === thirdCard.count
+    );
+  }
+
+  // console.log("ALL CARDS ", allCards);
 
   return (
     <div className="GameBoard">
+      <div>Remaining Cards: {currentDeck.length}</div>
       <Timer time={time} setTime={setTime} />
-      {/* <div className="Timer">Time: {time} </div> */}
       <div className="Points">Points: {points} </div>
       <div className="Alerts">{alert}</div>
+      <NoSetButton
+        setAlert={setAlert}
+        setDisplayRowFive={setDisplayRowFive}
+        checkBoardForSet={checkBoardForSet}
+        points={points}
+        setPoints={setPoints}
+      />
 
       {populateRow(rowOne)}
       {populateRow(rowTwo)}

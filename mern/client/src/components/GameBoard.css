@@ -6,7 +6,7 @@
 
 .CardRow {
   display: flex;
-  margin: 15px;
+  /* margin: 15px; */
 }
 
 .Points {
