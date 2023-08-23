@@ -26,20 +26,50 @@ function GameBoard(props) {
   useEffect(() => {
     const newOrder = createDeckOrder([]);
     setCurrentDeck(newOrder);
+
+    // populates backwards
+    // const noSetBoard = [2, 4, 3, 60, 10, 13, 69, 57, 75, 56, 18, 5];
+
+    // const noSetBoard = [
+    //   15, 16, 17, 66, 11, 6, 2, 4, 3, 60, 10, 13, 69, 57, 75, 56, 18, 5,
+    // ];
+    // setCurrentDeck(noSetBoard);
+    // firstBoard(allCards, noSetBoard);
     firstBoard(allCards, newOrder);
   }, []);
 
+  useEffect(() => {
+    if (displayRowFive) {
+      setRowFive(getThreeCards(allCards, currentDeck));
+    }
+  }, [displayRowFive]);
+
   function endCheck(isSet, cardOneNumber, cardTwoNumber, cardThreeNumber) {
+    // console.log(" Inside endCheck RowFive ", rowFive);
     if (isSet) {
-      if (displayRowFive) {
-        setDisplayRowFive(false);
-        // FILL IN CARDS
+      if (currentDeck.length === 0) {
+        setAlert("Finished Game");
       } else {
-        setAlert("This is a Set");
-        setPoints(points + 1);
+        if (displayRowFive) {
+          for (let i = 0; i < 3; i++) {
+            if (rowFive[i].cardNumber === cardOneNumber) {
+              rowFive.pop();
+              setRowFive(rowFive);
+            } else if (rowFive[i].cardNumber === cardTwoNumber) {
+              rowFive.pop();
+              setRowFive(rowFive);
+            } else if (rowFive[i].cardNumber === cardThreeNumber) {
+              rowFive.pop();
+              setRowFive(rowFive);
+            }
+          }
+        }
         removeAndReplaceCard(cardOneNumber);
         removeAndReplaceCard(cardTwoNumber);
         removeAndReplaceCard(cardThreeNumber);
+        setDisplayRowFive(false);
+        setAlert("This is a Set");
+        setPoints(points + 1);
         setSelectedCards([]);
       }
     } else {
@@ -52,59 +82,126 @@ function GameBoard(props) {
   }
 
   function removeAndReplaceCard(cardNumber) {
-    let found = 0;
-    if (found !== 3) {
-      for (let i = 0; i < 3; i++) {
-        if (rowOne[i].cardNumber === cardNumber) {
+    console.log("CARDNUMBER ", cardNumber);
+
+    for (let i = 0; i < 3; i++) {
+      console.log("SELECTED ROW ", selectedCards);
+
+      if (rowOne[i].cardNumber === cardNumber) {
+        console.log("ROW ONE i ", i, " ==== ", rowOne[i]);
+        if (displayRowFive) {
+          const oldRow = [...rowOne];
+          console.log("This is the old Row ", oldRow);
+
+          const oldRowFive = [...rowFive];
+          console.log("This is the old RowFive ", oldRowFive);
+
+          console.log(" $$$$ REPLACEMENT I ", i);
+          const replacementCardNumber = rowFive.pop();
+          console.log(" $$$$ REPLACEMENT ", replacementCardNumber);
+
+          setRowFive(rowFive);
+          const newCard = allCards.filter(
+            (card) => card.cardNumber === replacementCardNumber.cardNumber
+          )[0];
+          rowOne.splice(i, 1, newCard);
+          setRowOne(rowOne);
+
+          console.log("REPLACEMENT ROW ONE ", rowOne);
+        } else {
           const newCardNumber = currentDeck.pop();
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
           rowOne.splice(i, 1, newCard);
           setRowOne(rowOne);
-          found += 1;
-        } else if (rowTwo[i].cardNumber === cardNumber) {
-          const newCardNumber = currentDeck.pop();
+        }
+      } else if (rowTwo[i].cardNumber === cardNumber) {
+        console.log("ROW TWO i ", i, " ==== ", rowTwo[i]);
+        if (displayRowFive) {
+          const oldRow = [...rowTwo];
+          console.log("This is the old Row ", oldRow);
 
+          const oldRowFive = [...rowFive];
+          console.log("This is the old RowFive ", oldRowFive);
+
+          const replacementCardNumber = rowFive.pop();
+          console.log(" $$$$ REPLACEMENT ", replacementCardNumber);
+
+          setRowFive(rowFive);
+          const newCard = allCards.filter(
+            (card) => card.cardNumber === replacementCardNumber.cardNumber
+          )[0];
+          rowTwo.splice(i, 1, newCard);
+          setRowTwo(rowTwo);
+          console.log("REPLACEMENT ROW TWO ", rowTwo);
+        } else {
+          const newCardNumber = currentDeck.pop();
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
           rowTwo.splice(i, 1, newCard);
           setRowTwo(rowTwo);
-          found += 1;
-        } else if (rowThree[i].cardNumber === cardNumber) {
-          const newCardNumber = currentDeck.pop();
+        }
+      } else if (rowThree[i].cardNumber === cardNumber) {
+        console.log("ROW THREE i ", i, " ==== ", rowThree[i]);
+        if (displayRowFive) {
+          const oldRow = [...rowThree];
+          console.log("This is the old Row ", oldRow);
 
+          const oldRowFive = [...rowFive];
+          console.log("This is the old RowFive ", oldRowFive);
+
+          const replacementCardNumber = rowFive.pop();
+          console.log(" $$$$ REPLACEMENT ", replacementCardNumber);
+
+          setRowFive(rowFive);
+          const newCard = allCards.filter(
+            (card) => card.cardNumber === replacementCardNumber.cardNumber
+          )[0];
+          rowThree.splice(i, 1, newCard);
+          setRowThree(rowThree);
+          console.log("REPLACEMENT ROW THREE ", rowThree);
+        } else {
+          const newCardNumber = currentDeck.pop();
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
           rowThree.splice(i, 1, newCard);
           setRowThree(rowThree);
-          found += 1;
-        } else if (rowFour[i].cardNumber === cardNumber) {
-          const newCardNumber = currentDeck.pop();
+        }
+      } else if (rowFour[i].cardNumber === cardNumber) {
+        console.log("ROW FOUR i ", i, " ==== ", rowFour[i]);
+        if (displayRowFive) {
+          const oldRow = [...rowFour];
+          console.log("This is the old Row ", oldRow);
 
+          const oldRowFive = [...rowFive];
+          console.log("This is the old RowFive ", oldRowFive);
+
+          const replacementCardNumber = rowFive.pop();
+          console.log(" $$$$ REPLACEMENT ", replacementCardNumber);
+
+          setRowFive(rowFive);
+          const newCard = allCards.filter(
+            (card) => card.cardNumber === replacementCardNumber.cardNumber
+          )[0];
+          rowFour.splice(i, 1, newCard);
+          setRowFour(rowFour);
+          console.log("REPLACEMENT ROW FOUR ", rowFour);
+        } else {
+          const newCardNumber = currentDeck.pop();
           const newCard = allCards.filter(
             (card) => card.cardNumber === newCardNumber
           )[0];
           rowFour.splice(i, 1, newCard);
           setRowFour(rowFour);
-          found += 1;
-        } else if (displayRowFive && rowFive[i].cardNumber === cardNumber) {
-          const newCardNumber = currentDeck.pop();
-
-          const newCard = allCards.filter(
-            (card) => card.cardNumber === newCardNumber
-          )[0];
-          rowFive.splice(i, 1, newCard);
-          setRowFive(rowFive);
-          found += 1;
         }
       }
     }
   }
 
-  function checkSet(arrayOfCards, noSetCheck) {
+  function checkSet(arrayOfCards) {
     const sameShape = arrayOfCards[0].shape === arrayOfCards[1].shape;
     const sameColor = arrayOfCards[0].color === arrayOfCards[1].color;
     const sameFill = arrayOfCards[0].fill === arrayOfCards[1].fill;
@@ -117,18 +214,7 @@ function GameBoard(props) {
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
-      if (noSetCheck) {
-        console.log(
-          "Did no find a Set with ",
-          arrayOfCards[0],
-          arrayOfCards[1],
-          arrayOfCards[2]
-        );
-        return false;
-      } else {
-        endCheck(false);
-        return;
-      }
+      return false;
     }
     if (
       !(
@@ -138,18 +224,7 @@ function GameBoard(props) {
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
-      if (noSetCheck) {
-        console.log(
-          "Did no find a Set with ",
-          arrayOfCards[0],
-          arrayOfCards[1],
-          arrayOfCards[2]
-        );
-        return false;
-      } else {
-        endCheck(false);
-        return;
-      }
+      return false;
     }
 
     if (
@@ -160,18 +235,7 @@ function GameBoard(props) {
           arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
-      if (noSetCheck) {
-        console.log(
-          "Did no find a Set with ",
-          arrayOfCards[0],
-          arrayOfCards[1],
-          arrayOfCards[2]
-        );
-        return false;
-      } else {
-        endCheck(false);
-        return;
-      }
+      return false;
     }
 
     if (
@@ -182,37 +246,16 @@ function GameBoard(props) {
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
-      if (noSetCheck) {
-        console.log(
-          "Did no find a Set with ",
-          arrayOfCards[0],
-          arrayOfCards[1],
-          arrayOfCards[2]
-        );
-        return false;
-      } else {
-        endCheck(false);
-        return;
-      }
+      return false;
     }
 
-    if (noSetCheck) {
-      console.log(
-        "============ FOUND A Set with ",
-        arrayOfCards[0],
-        arrayOfCards[1],
-        arrayOfCards[2]
-      );
-      return true;
-    } else {
-      endCheck(
-        true,
-        arrayOfCards[0].cardNumber,
-        arrayOfCards[1].cardNumber,
-        arrayOfCards[2].cardNumber
-      );
-      return;
-    }
+    endCheck(
+      true,
+      arrayOfCards[0].cardNumber,
+      arrayOfCards[1].cardNumber,
+      arrayOfCards[2].cardNumber
+    );
+    return;
   }
 
   function selectCard(cardObject) {
@@ -225,6 +268,7 @@ function GameBoard(props) {
         return;
       }
     }
+    console.log("Inside Select Card Current Cards: ", currentCards);
     currentCards.push(cardObject);
     setSelectedCards(currentCards);
     if (currentCards.length === 3) {
@@ -251,7 +295,6 @@ function GameBoard(props) {
     const threeCards = [];
     for (let k = 0; k < 3; k++) {
       const searchFor = deckOrder.pop();
-      // console.log("This is the Rando Number ", searchFor);
 
       threeCards.push(
         currentDeck.filter((card) => card.cardNumber === searchFor)[0]
@@ -283,9 +326,6 @@ function GameBoard(props) {
     setRowTwo(getThreeCards(allCards, currentDeck));
     setRowThree(getThreeCards(allCards, currentDeck));
     setRowFour(getThreeCards(allCards, currentDeck));
-    if (displayRowFive) {
-      setRowFive(getThreeCards(allCards, currentDeck));
-    }
   }
 
   // console.log("ROW ONE ", rowOne);
@@ -298,26 +338,18 @@ function GameBoard(props) {
 
   function checkBoardForSet() {
     const fullBoard = rowOne.concat(rowTwo, rowThree, rowFour);
-    console.log("This is full board ", fullBoard);
+    // console.log("This is full board ", fullBoard);
     const setArray = [];
     for (let i = 0; i < fullBoard.length; i++) {
       for (let k = i; k < fullBoard.length; k++) {
-        console.log("Okay ", i, " k ", k);
-
         if (!(i === k)) {
-          console.log("Okay ", i, " k ", k);
-
           if (
             setArray.includes(fullBoard[i].cardNumber) ||
             setArray.includes(fullBoard[k].cardNumber)
           ) {
             console.log(" This is the Set ", fullBoard[i], fullBoard[k]);
-            console.log("Wrong");
-
             return true;
           } else {
-            console.log("Right");
-
             setArray.push(
               findThirdCardInSet([fullBoard[i], fullBoard[k]]).cardNumber
             );
@@ -325,28 +357,8 @@ function GameBoard(props) {
         }
       }
     }
-    console.log("This is the setArray", setArray);
     return false;
-
-    // const columnOne = [rowOne[0], rowTwo[0], rowThree[0], rowFour[0]];
-    // const columnTwo = [rowOne[1], rowTwo[1], rowThree[1], rowFour[1]];
-    // const columnThree = [rowOne[2], rowTwo[2], rowThree[2], rowFour[2]];
-    // // Inter Column
-
-    // // Across Columns
-    // for (let i = 0; i < 4; i++) {
-    //   for (let k = 0; k < 4; k++) {
-    //     for (let g = 0; g < 4; g++) {
-    //       if (checkSet([columnOne[i], columnTwo[k], columnThree[g]], true)) {
-    //         return true;
-    //       }
-    //     }
-    //   }
-    // }
-    // return false;
   }
-
-  // checkBoardForSet();
 
   function findThirdCardInSet(arrayofTwoCards) {
     const allShape = ["Oval", "Diamond", "Squiggle"];
@@ -400,8 +412,6 @@ function GameBoard(props) {
         card.count === thirdCard.count
     );
   }
-
-  // console.log("ALL CARDS ", allCards);
 
   return (
     <div className="GameBoard">
