@@ -214,6 +214,7 @@ function GameBoard(props) {
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
+      setSelectedCards([]);
       return false;
     }
     if (
@@ -224,6 +225,8 @@ function GameBoard(props) {
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
+      setSelectedCards([]);
+
       return false;
     }
 
@@ -235,6 +238,8 @@ function GameBoard(props) {
           arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
+      setSelectedCards([]);
+
       return false;
     }
 
@@ -246,6 +251,8 @@ function GameBoard(props) {
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
+      setSelectedCards([]);
+
       return false;
     }
 
@@ -255,14 +262,30 @@ function GameBoard(props) {
       arrayOfCards[1].cardNumber,
       arrayOfCards[2].cardNumber
     );
+
     return;
+  }
+
+  function toggleHighlite(cardObject, isOff) {
+    const cardId = `Card${cardObject.cardNumber}`;
+    const card = document.getElementById(cardId);
+    if (isOff) {
+      card.style.borderColor = "yellow";
+      card.style.borderStyle = "solid";
+    } else {
+      card.style.borderColor = "";
+      card.style.borderStyle = "";
+    }
+    console.log("This is the card to unselect : ", card);
   }
 
   function selectCard(cardObject) {
     setAlert("");
     const currentCards = selectedCards;
+    toggleHighlite(cardObject, true);
     for (let i = 0; i < selectedCards.length; i++) {
       if (_.isEqual(selectedCards[i], cardObject)) {
+        toggleHighlite(cardObject, false);
         currentCards.splice(i, 1);
         setSelectedCards(currentCards);
         return;
@@ -272,6 +295,9 @@ function GameBoard(props) {
     currentCards.push(cardObject);
     setSelectedCards(currentCards);
     if (currentCards.length === 3) {
+      for (let i = 0; i < selectedCards.length; i++) {
+        toggleHighlite(selectedCards[i], false);
+      }
       checkSet(currentCards);
     }
   }
@@ -306,17 +332,18 @@ function GameBoard(props) {
   function populateRow(oneRow) {
     return (
       <div className="CardRow">
-        {oneRow.map((card) => (
-          <Card
-            className="Card"
-            shape={card.shape}
-            color={card.color}
-            fill={card.fill}
-            count={card.count}
-            cardNumber={card.cardNumber}
-            click={selectCard}
-          />
-        ))}
+        {oneRow.map((card) => {
+          return (
+            <Card
+              shape={card.shape}
+              color={card.color}
+              fill={card.fill}
+              count={card.count}
+              cardNumber={card.cardNumber}
+              click={selectCard}
+            />
+          );
+        })}
       </div>
     );
   }

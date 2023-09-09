@@ -8,11 +8,12 @@
   margin: 15px;
 }
 
+#selectedCard {
+  border-color: yellow;
+  border-style: solid;
+}
+
 .CardSymbol {
   display: flex;
   align-items: center;
 }
-
-/* #selected {
-  border-color: yellow;
-} */
