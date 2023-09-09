@@ -5,9 +5,11 @@ import Squiggle from "./Symbols/Squiggle";
 
 function Card(props) {
   if (props.shape === "Oval") {
+    const idString = `Card${props.cardNumber}`;
     return (
       <div
         className="Card"
+        id={idString}
         onClick={() => {
           const cardObject = {
             shape: props.shape,
@@ -27,9 +29,11 @@ function Card(props) {
       </div>
     );
   } else if (props.shape === "Diamond") {
+    const idString = `Card${props.cardNumber}`;
     return (
       <div
         className="Card"
+        id={idString}
         onClick={() => {
           const cardObject = {
             shape: props.shape,
@@ -53,9 +57,11 @@ function Card(props) {
       </div>
     );
   } else if (props.shape === "Squiggle") {
+    const idString = `Card${props.cardNumber}`;
     return (
       <div
         className="Card"
+        id={idString}
         onClick={() => {
           const cardObject = {
             shape: props.shape,
