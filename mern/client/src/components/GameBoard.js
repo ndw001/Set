@@ -214,8 +214,13 @@ function GameBoard(props) {
           arrayOfCards[1].shape !== arrayOfCards[2].shape)
       )
     ) {
-      setSelectedCards([]);
-      return false;
+      endCheck(
+        false,
+        arrayOfCards[0].cardNumber,
+        arrayOfCards[1].cardNumber,
+        arrayOfCards[2].cardNumber
+      );
+      return;
     }
     if (
       !(
@@ -225,9 +230,13 @@ function GameBoard(props) {
           arrayOfCards[1].color !== arrayOfCards[2].color)
       )
     ) {
-      setSelectedCards([]);
-
-      return false;
+      endCheck(
+        false,
+        arrayOfCards[0].cardNumber,
+        arrayOfCards[1].cardNumber,
+        arrayOfCards[2].cardNumber
+      );
+      return;
     }
 
     if (
@@ -238,9 +247,13 @@ function GameBoard(props) {
           arrayOfCards[1].fill !== arrayOfCards[2].fill)
       )
     ) {
-      setSelectedCards([]);
-
-      return false;
+      endCheck(
+        false,
+        arrayOfCards[0].cardNumber,
+        arrayOfCards[1].cardNumber,
+        arrayOfCards[2].cardNumber
+      );
+      return;
     }
 
     if (
@@ -251,9 +264,13 @@ function GameBoard(props) {
           arrayOfCards[1].count !== arrayOfCards[2].count)
       )
     ) {
-      setSelectedCards([]);
-
-      return false;
+      endCheck(
+        false,
+        arrayOfCards[0].cardNumber,
+        arrayOfCards[1].cardNumber,
+        arrayOfCards[2].cardNumber
+      );
+      return;
     }
 
     endCheck(
