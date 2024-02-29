@@ -2,6 +2,7 @@ import "./GameBoard.css";
 import Card from "./Card";
 import Timer from "./Timer";
 import NoSetButton from "./NoSetButton";
+import HintButton from "./HintButton";
 
 import { useState, useEffect } from "react";
 import populateDeck from "./helperFunctions";
@@ -17,6 +18,8 @@ function GameBoard(props) {
   const [rowFour, setRowFour] = useState([]);
   const [displayRowFive, setDisplayRowFive] = useState(false);
   const [rowFive, setRowFive] = useState([]);
+  const [hintCards, setHintCards] = useState([]);
+  const [highlightedHintCards, setHighlightedHintCards] = useState([]);
 
   const [time, setTime] = useState(0);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -273,6 +276,12 @@ function GameBoard(props) {
       return;
     }
 
+    setHintCards(
+      arrayOfCards[0].cardNumber,
+      arrayOfCards[1].cardNumber,
+      arrayOfCards[2].cardNumber
+    );
+
     endCheck(
       true,
       arrayOfCards[0].cardNumber,
@@ -470,7 +479,12 @@ function GameBoard(props) {
         points={points}
         setPoints={setPoints}
       />
-
+      &nbsp;
+      <HintButton
+        setAlert={setAlert}
+        setHighlightedHintCards={setHighlightedHintCards}
+        checkBoardForSet={checkBoardForSet}
+      />
       {populateRow(rowOne)}
       {populateRow(rowTwo)}
       {populateRow(rowThree)}
