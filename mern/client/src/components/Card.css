@@ -13,6 +13,11 @@
   border-style: solid;
 }
 
+#hintCard {
+  border-color: rgb(54, 251, 10);
+  border-style: solid;
+}
+
 .CardSymbol {
   display: flex;
   align-items: center;

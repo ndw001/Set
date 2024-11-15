@@ -2,6 +2,7 @@ import "./GameBoard.css";
 import Card from "./Card";
 import Timer from "./Timer";
 import NoSetButton from "./NoSetButton";
+import HintButton from "./HintButton";
 
 import { useState, useEffect } from "react";
 import populateDeck from "./helperFunctions";
@@ -17,6 +18,8 @@ function GameBoard(props) {
   const [rowFour, setRowFour] = useState([]);
   const [displayRowFive, setDisplayRowFive] = useState(false);
   const [rowFive, setRowFive] = useState([]);
+  const [hintCards, setHintCards] = useState([]);
+  const [highlightedHintCards, setHighlightedHintCards] = useState([]);
 
   const [time, setTime] = useState(0);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -36,6 +39,7 @@ function GameBoard(props) {
     // setCurrentDeck(noSetBoard);
     // firstBoard(allCards, noSetBoard);
     firstBoard(allCards, newOrder);
+    checkBoardForSet();
   }, []);
 
   useEffect(() => {
@@ -43,6 +47,10 @@ function GameBoard(props) {
       setRowFive(getThreeCards(allCards, currentDeck));
     }
   }, [displayRowFive]);
+
+  useEffect(() => {
+    console.log("This is the HINT CARD ", hintCards);
+  }, [hintCards]);
 
   function endCheck(isSet, cardOneNumber, cardTwoNumber, cardThreeNumber) {
     // console.log(" Inside endCheck RowFive ", rowFive);
@@ -283,15 +291,25 @@ function GameBoard(props) {
     return;
   }
 
-  function toggleHighlite(cardObject, isOff) {
+  function toggleHighlite(cardObject, isSelected, isHint) {
+    console.log("hint cards state first ", hintCards);
+    console.log("hint cards state second ", hintCards[0]);
     const cardId = `Card${cardObject.cardNumber}`;
+    console.log("This is the cardID inside toggle highlite", cardId);
+
     const card = document.getElementById(cardId);
-    if (isOff) {
+    console.log("This is the card inside toggle highlite", card);
+    if (isSelected) {
       card.style.borderColor = "yellow";
       card.style.borderStyle = "solid";
+    } else if (isHint) {
+      card.style.borderColor = "green";
+      card.style.borderStyle = "solid";
+      card.classList.add("highlight-green");
     } else {
       card.style.borderColor = "";
       card.style.borderStyle = "";
+      card.classList.remove("highlight-green");
     }
     console.log("This is the card to unselect : ", card);
   }
@@ -391,12 +409,22 @@ function GameBoard(props) {
             setArray.includes(fullBoard[i].cardNumber) ||
             setArray.includes(fullBoard[k].cardNumber)
           ) {
-            console.log(" This is the Set ", fullBoard[i], fullBoard[k]);
+            const hintArray = [];
+            hintArray.push(fullBoard[i]);
+            hintArray.push(fullBoard[k]);
+
+            // setHintCards(hintArray);
+            setHintCards([...hintArray]);
+
+            // console.log("This is the HINT ARRAY ", hintArray);
+            // console.log("This is the HINT CARD ", hintCards);
+
             return true;
           } else {
             setArray.push(
               findThirdCardInSet([fullBoard[i], fullBoard[k]]).cardNumber
             );
+            // console.log("This is the set Array", setArray);
           }
         }
       }
@@ -470,7 +498,15 @@ function GameBoard(props) {
         points={points}
         setPoints={setPoints}
       />
-
+      &nbsp;
+      <HintButton
+        setAlert={setAlert}
+        hintCards={hintCards}
+        setHighlightedHintCards={setHighlightedHintCards}
+        checkBoardForSet={checkBoardForSet}
+        toggleHighlite={toggleHighlite}
+      />
+      {/* {console.log("These are hints at end of render", hintCards)} */}
       {populateRow(rowOne)}
       {populateRow(rowTwo)}
       {populateRow(rowThree)}
