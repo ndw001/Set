@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Set/static/css/main.df27ef9b.css",
+    "main.js": "/Set/static/js/main.b3a6dbf0.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/Set/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/Squiggle-Green-Lines.svg": "/Set/static/media/Squiggle-Green-Lines.63dd162620c3e2f982f0820689b2fb5d.svg",
+    "static/media/Squiggle-Purple-Lines.svg": "/Set/static/media/Squiggle-Purple-Lines.0d64c2acb74a5af0ff30cef9abcd35a7.svg",
+    "static/media/Squiggle-Red-Lines.svg": "/Set/static/media/Squiggle-Red-Lines.5320c8c5ca9c3f61c99adf85265ea850.svg",
+    "static/media/Diamond-Green-Lines.svg": "/Set/static/media/Diamond-Green-Lines.5020ff99eb7123d4ca6f20487408240f.svg",
+    "static/media/Diamond-Purple-Lines.svg": "/Set/static/media/Diamond-Purple-Lines.b136243a21303aef16ccf976fa8568e2.svg",
+    "static/media/Diamond-Red-Lines.svg": "/Set/static/media/Diamond-Red-Lines.6285b41dbddca7761d44e21248880da2.svg",
+    "index.html": "/Set/index.html",
+    "static/media/Squiggle-Green-Solid.svg": "/Set/static/media/Squiggle-Green-Solid.6775fa19db2ce1078d8e1b3fc65fdd7b.svg",
+    "static/media/Squiggle-Purple-Solid.svg": "/Set/static/media/Squiggle-Purple-Solid.fd14dbe602a848d6c757ebc08a617de0.svg",
+    "static/media/Squiggle-Red-Solid.svg": "/Set/static/media/Squiggle-Red-Solid.34efdaaf418226ee8bb27be22909551b.svg",
+    "static/media/Squiggle-Green-Empty.svg": "/Set/static/media/Squiggle-Green-Empty.03193773634bbfe3fb96e6ca28dd5dd1.svg",
+    "static/media/Squiggle-Purple-Empty.svg": "/Set/static/media/Squiggle-Purple-Empty.be04f061536505f9208a1c4a8e1c11e5.svg",
+    "static/media/Squiggle-Red-Empty.svg": "/Set/static/media/Squiggle-Red-Empty.21cab248a794d07dc73fa87a4b1047c9.svg",
+    "main.df27ef9b.css.map": "/Set/static/css/main.df27ef9b.css.map",
+    "main.b3a6dbf0.js.map": "/Set/static/js/main.b3a6dbf0.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/Set/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df27ef9b.css",
+    "static/js/main.b3a6dbf0.js"
+  ]
+}
