@@ -487,26 +487,30 @@ function GameBoard(props) {
 
   return (
     <div className="GameBoard">
-      <div>Remaining Cards: {currentDeck.length}</div>
-      <Timer time={time} setTime={setTime} />
-      <div className="Points">Points: {points} </div>
-      <div className="Alerts">{alert}</div>
-      <div className="buttonContainer">
-        <NoSetButton
-          setAlert={setAlert}
-          setDisplayRowFive={setDisplayRowFive}
-          checkBoardForSet={checkBoardForSet}
-          points={points}
-          setPoints={setPoints}
-        />
-        &nbsp;
-        <HintButton
-          setAlert={setAlert}
-          hintCards={hintCards}
-          setHighlightedHintCards={setHighlightedHintCards}
-          checkBoardForSet={checkBoardForSet}
-          toggleHighlite={toggleHighlite}
-        />
+      <div className="Stats">
+        <div className="RemainingCards">
+          Remaining Cards: {currentDeck.length}
+        </div>
+        <Timer time={time} setTime={setTime} />
+        <div className="Points">Points: {points} </div>
+        <div className="Alerts">{alert}</div>
+        <div className="ButtonContainer">
+          <NoSetButton
+            setAlert={setAlert}
+            setDisplayRowFive={setDisplayRowFive}
+            checkBoardForSet={checkBoardForSet}
+            points={points}
+            setPoints={setPoints}
+          />
+          &nbsp;
+          {/* <HintButton
+            setAlert={setAlert}
+            hintCards={hintCards}
+            setHighlightedHintCards={setHighlightedHintCards}
+            checkBoardForSet={checkBoardForSet}
+            toggleHighlite={toggleHighlite}
+          /> */}
+        </div>
       </div>
 
       {/* {console.log("These are hints at end of render", hintCards)} */}
