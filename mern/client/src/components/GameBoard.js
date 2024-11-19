@@ -491,21 +491,24 @@ function GameBoard(props) {
       <Timer time={time} setTime={setTime} />
       <div className="Points">Points: {points} </div>
       <div className="Alerts">{alert}</div>
-      <NoSetButton
-        setAlert={setAlert}
-        setDisplayRowFive={setDisplayRowFive}
-        checkBoardForSet={checkBoardForSet}
-        points={points}
-        setPoints={setPoints}
-      />
-      &nbsp;
-      <HintButton
-        setAlert={setAlert}
-        hintCards={hintCards}
-        setHighlightedHintCards={setHighlightedHintCards}
-        checkBoardForSet={checkBoardForSet}
-        toggleHighlite={toggleHighlite}
-      />
+      <div className="buttonContainer">
+        <NoSetButton
+          setAlert={setAlert}
+          setDisplayRowFive={setDisplayRowFive}
+          checkBoardForSet={checkBoardForSet}
+          points={points}
+          setPoints={setPoints}
+        />
+        &nbsp;
+        <HintButton
+          setAlert={setAlert}
+          hintCards={hintCards}
+          setHighlightedHintCards={setHighlightedHintCards}
+          checkBoardForSet={checkBoardForSet}
+          toggleHighlite={toggleHighlite}
+        />
+      </div>
+
       {/* {console.log("These are hints at end of render", hintCards)} */}
       {populateRow(rowOne)}
       {populateRow(rowTwo)}
