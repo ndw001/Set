@@ -302,6 +302,7 @@ function GameBoard(props) {
     if (isSelected) {
       card.style.borderColor = "yellow";
       card.style.borderStyle = "solid";
+      card.style.borderWidth = "20px";
     } else if (isHint) {
       card.style.borderColor = "green";
       card.style.borderStyle = "solid";

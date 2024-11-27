@@ -7,10 +7,11 @@
   justify-content: center;
   margin: 15px;
   background-color: white;
+  box-sizing: border-box;
 }
 
 #selectedCard {
-  border-color: yellow;
+  border-color: red;
   border-style: solid;
 }
 
